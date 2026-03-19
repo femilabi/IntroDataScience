@@ -48,7 +48,7 @@ def _():
 
     name = "Oluwafemi Oderinwale"  # Replace with your name
     age = 27  # Replace with your age
-    height = 1.75  # Replace with your height
+    height = 1.82  # Replace with your height
     is_student = True  # Change if needed
 
     # Print them out
