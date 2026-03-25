@@ -72,16 +72,13 @@ def _(pl):
 def _(students):
     # TODO: Display basic information about the students dataset
     # - How many rows and columns?
-    print("Rows & Columns:", students.shape)
     # - What are the column names?
-    print("\nColumn Names:")
-    print(students.columns)
-
     # - What are the data types?
-    print("\nData Types:")
-    print(students.schema)
-
     # Hint: Use students.shape, students.columns, students.dtypes, or students.describe()
+    print("Rows & Columns:", students.shape)
+    print("\nColumn Names:", students.columns)
+    print("\nData Types:", students.schema)
+    students.describe()
     return
 
 
