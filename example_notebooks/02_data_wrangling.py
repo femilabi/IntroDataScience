@@ -302,54 +302,7 @@ def _(students):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## 8. Grouping and Aggregation
-    """)
-    return
-
-
-@app.cell
-def _(pl, students):
-    # Group by and count
-    by_grade = students.group_by("grade_level").agg([
-        pl.len().alias("student_count")
-    ]).sort("grade_level")
-
-    by_grade
-    return
-
-
-@app.cell
-def _(pl, students):
-    # Multiple aggregations
-    by_subject = students.group_by("subject").agg([
-        pl.len().alias("count"),
-        pl.col("test_score").mean().alias("avg_score"),
-        pl.col("test_score").max().alias("max_score"),
-        pl.col("attendance_rate").mean().alias("avg_attendance")
-    ]).sort("avg_score", descending=True)
-
-    by_subject
-    return
-
-
-@app.cell
-def _(pl, sales):
-    # Real-world example: Sales by category
-    category_sales = sales.group_by("product_category").agg([
-        pl.len().alias("transaction_count"),
-        pl.col("total_amount").sum().alias("total_revenue"),
-        pl.col("total_amount").mean().alias("avg_transaction"),
-        pl.col("quantity").sum().alias("total_quantity")
-    ]).sort("total_revenue", descending=True)
-
-    category_sales
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ## 9. Working with Dates
+    ## 8. Working with Dates
     """)
     return
 
@@ -384,7 +337,7 @@ def _(pl, sales_with_date):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## 10. Joining DataFrames
+    ## 9. Joining DataFrames
     """)
     return
 
@@ -418,7 +371,7 @@ def _(grade_info, students):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## 11. Chaining Operations
+    ## 10. Chaining Operations
     """)
     return
 
@@ -434,7 +387,7 @@ def _(pl, students):
         ])
         .group_by("subject")
         .agg([
-            pl.len().alias("total_students"),
+            pl.count().alias("total_students"),
             pl.col("high_performer").sum().alias("high_performers"),
             pl.col("test_score").mean().alias("avg_score")
         ])
@@ -453,7 +406,7 @@ def _(pl, students):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## 12. Data Cleaning Example
+    ## 11. Data Cleaning Example
 
     Let's clean the sales data which has some quality issues:
     """)
@@ -505,7 +458,6 @@ def _(mo):
     - ✅ Filter and select data
     - ✅ Create new calculated columns
     - ✅ Handle missing values
-    - ✅ Group and aggregate data
     - ✅ Work with dates
     - ✅ Join multiple datasets
     - ✅ Chain operations for complex analysis
