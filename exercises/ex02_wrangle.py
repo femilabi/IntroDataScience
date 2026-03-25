@@ -225,7 +225,8 @@ def _(pl, sales_with_month):
         .sort("total_revenue", descending=True)
     )
 
-    print(f"Month with the highest revenue: {monthly_sales[0, 'month_name']} with revenue ${monthly_sales[0, 'total_revenue']}")
+    highest_revenue_month = monthly_sales.head(1)  # Get the first row which has the highest revenue
+    print(f"Month with the highest revenue: {highest_revenue_month['month_name'][0]} with revenue ${highest_revenue_month['total_revenue'][0]}")
     return
 
 
