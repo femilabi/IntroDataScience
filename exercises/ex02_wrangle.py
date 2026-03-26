@@ -195,32 +195,42 @@ def _(mo):
 
 
 @app.cell
-def _():
+def _(pl, sales):
     # TODO: Calculate total sales by product_category
     # Sum up the total_amount for each category
     # Sort by total sales descending
 
-    category_sales = None  # Use group_by() and agg()
+    category_sales = sales.group_by("product_category").agg(
+        pl.col("total_amount").sum().alias("total_sales")
+    ).sort('total_sales', descending=True) # Use group_by() and agg()
 
+    category_sales
     return
 
 
 @app.cell
-def _():
+def _(pl, sales):
     # TODO: Find the average transaction amount by payment_method
 
-    avg_by_payment = None
+    avg_by_payment = sales.group_by("payment_method").agg(
+        pl.col("total_amount").mean().alias("average_transaction")
+    )
 
+    avg_by_payment
     return
 
 
 @app.cell
-def _():
+def _(pl, sales):
     # TODO: Count how many transactions each region had
     # Also calculate the total revenue per region
 
-    region_summary = None  # Group by region, count and sum
+    region_summary = sales.group_by("region").agg(
+        pl.col("quantity").sum().alias("transaction_count"),
+        pl.col("total_amount").sum().alias("total_revenue")
+    )  # Group by region, count and sum
 
+    region_summary
     return
 
 
