@@ -189,7 +189,45 @@ def _(sales):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Part 5: Date Operations
+    ## Part 5: Aggregations and Grouping
+    """)
+    return
+
+
+@app.cell
+def _():
+    # TODO: Calculate total sales by product_category
+    # Sum up the total_amount for each category
+    # Sort by total sales descending
+
+    category_sales = None  # Use group_by() and agg()
+
+    return
+
+
+@app.cell
+def _():
+    # TODO: Find the average transaction amount by payment_method
+
+    avg_by_payment = None
+
+    return
+
+
+@app.cell
+def _():
+    # TODO: Count how many transactions each region had
+    # Also calculate the total revenue per region
+
+    region_summary = None  # Group by region, count and sum
+
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## Part 6: Date Operations
     """)
     return
 
@@ -242,6 +280,7 @@ def _(mo):
     - ✅ Loading CSV and JSON data with Polars
     - ✅ Filtering and selecting data
     - ✅ Creating calculated columns
+    - ✅ Grouping and aggregating
     - ✅ Date operations
 
     **What's next?**
