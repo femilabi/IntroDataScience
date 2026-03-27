@@ -226,7 +226,7 @@ def _(pl, sales):
     # Also calculate the total revenue per region
 
     region_summary = sales.group_by("region").agg(
-        pl.col("quantity").sum().alias("transaction_count"),
+        pl.len().alias("transaction_count"),
         pl.col("total_amount").sum().alias("total_revenue")
     )  # Group by region, count and sum
 
